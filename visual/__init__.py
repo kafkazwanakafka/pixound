@@ -35,7 +35,7 @@ def array_to_file(array, file_name):
     """Takes a numpy array and saves it into an image file."""
     imageio.imwrite(file_name, array) 
 
-def show(array):
+def show(array, **kwargs):
     """Shows an array as a picture on a matplotlib plot."""
-    plt.imshow(array)
+    plt.imshow(array, **kwargs)
     plt.show()
