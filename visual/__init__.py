@@ -35,7 +35,28 @@ def array_to_file(array, file_name):
     """Takes a numpy array and saves it into an image file."""
     imageio.imwrite(file_name, array) 
 
-def show(array, **kwargs):
+def show_path(shape, path):
+    """Draws an image of the path on a 2d plane."""
+    arr = np.zeros(shape)
+    step = 1/len(path)
+    for i in np.arange(len(path)):
+        x = path[i][0]
+        y = path[i][1]
+        arr[x][y] = i*step
+    plt.imshow(arr)
+    plt.show()
+
+def apply_path(array, path):
+    """Turns a 2d array into a 1d array along a path."""
+    sequence = []
+    for pos in path:
+        sequence.append(array[pos[0]][pos[1]])
+    sequence = np.array(sequence)
+    return sequence
+
+def show(array, path, **kwargs):
     """Shows an array as a picture on a matplotlib plot."""
-    plt.imshow(array, **kwargs)
+    seq = apply_path(array, path)
+    seq = seq.reshape(1, len(seq), 3)
+    plt.imshow(seq, **kwargs)
     plt.show()

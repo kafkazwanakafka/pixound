@@ -9,18 +9,18 @@ import numpy as np
 from visual import InvalidShapeError
 import visual
 
-def validate_array(array):
-    if array.shape[0] == array.shape[1]:
+def validate_shape(shape):
+    if shape[0] == shape[1]:
         return True
     else:
         return False
 
-def array_to_sequence(array):
-    if not validate_array(array):
+def array_to_sequence(shape):
+    if not validate_shape(shape):
         raise InvalidShapeError
 
-    side = array.shape[0]
-    seq = [array[0][0]]
+    side = shape[0]
+    seq = [(0,0)]
     for i in range(1, side):
         # List of pixel coords to add to sequence
         # need to list them because the lines will change direction
@@ -37,7 +37,7 @@ def array_to_sequence(array):
         for j in r:
             x = l[j][0]
             y = l[j][1]
-            seq.append(array[x][y])
+            seq.append((x, y))
 
     seq = np.array(seq)
     return seq
