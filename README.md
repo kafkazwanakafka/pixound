@@ -3,3 +3,5 @@ A research project that is to result in a program that is able to transmit pictu
 * 2d picture (monochrome or colour) to continuous data transformation
 * continuous data to sound transformation
 * sound into picture interpretation
+## Credits
+* [Kenneth Reitz's httpbin.org for coyote](http://httpbin.org/)
