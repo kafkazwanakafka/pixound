@@ -15,9 +15,9 @@ def validate_shape(shape):
     else:
         return False
 
-def array_to_sequence(shape):
+def shape_to_path(shape):
     if not validate_shape(shape):
-        raise InvalidShapeError
+        raise InvalidShapeError("Shape must be a square")
 
     side = shape[0]
     seq = [(0,0)]
