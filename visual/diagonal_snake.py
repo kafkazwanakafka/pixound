@@ -1,5 +1,5 @@
 """
-Module implementing and extremely simple and straightforward
+Module implementing an extremely simple and straightforward
 sequencing algorithm.
 
 It can only sequence square images.
